@@ -1,14 +1,17 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Allowing unfree
   nixpkgs.config.allowUnfree = true;
@@ -21,12 +24,12 @@
   # networking.hostName = "nixos"; # Define your hostname.
 
   # Enable nix flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
 
-  # Legacy iptables (for KubeVirt) 
+  # Legacy iptables (for KubeVirt)
   networking.nftables.enable = true;
 
   # Set your time zone.
@@ -49,7 +52,6 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -72,7 +74,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gaballa = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "postgresql" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "docker" "postgresql"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
@@ -102,10 +104,12 @@
 
   # Home manager iykyk
   home-manager = {
-	extraSpecialArgs = { inherit inputs; };
-	users = {
-	  "gaballa" = import ./home.nix;
-	};
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = {inherit inputs;};
+    users = {
+      "gaballa" = import ./home.nix;
+    };
   };
 
   # Enable waybar
@@ -163,13 +167,12 @@
   # Activate postgresql
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "mydatabase" ];
+    ensureDatabases = ["mydatabase"];
     authentication = pkgs.lib.mkOverride 10 ''
-	#type database DBuser auth-method
-	local all      all    trust
+      #type database DBuser auth-method
+      local all      all    trust
     '';
   };
-
 
   # Fonts
   fonts.packages = [
@@ -178,4 +181,3 @@
     pkgs.nerd-fonts.jetbrains-mono
   ];
 }
-
