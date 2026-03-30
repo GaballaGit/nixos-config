@@ -98,6 +98,7 @@
     krita
     kitty
     waybar
+    home-manager
   ];
 
   # Enable waybar
