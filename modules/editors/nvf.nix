@@ -22,6 +22,19 @@
         wrap = false;
       };
 
+      theme = {
+        transparent = true;
+        name = "tokyonight";
+      };
+
+      statusline = {
+        lualine = {
+          enable = true;
+          icons.enable = true;
+          theme = "Tomorrow";
+        };
+      };
+
       diagnostics = {
         enable = true;
         config = {
@@ -60,7 +73,9 @@
         ts = {
           enable = true;
           lsp.enable = true;
-          format.type = "prettierd";
+          format.type = [
+            "prettierd"
+          ];
         };
         html = {
           enable = true;
@@ -68,7 +83,9 @@
         };
         css = {
           enable = true;
-          format.type = "prettierd";
+          format.type = [
+            "prettierd"
+          ];
         };
         lua.enable = true;
       };
