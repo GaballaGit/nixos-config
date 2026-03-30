@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
@@ -27,8 +27,7 @@
   networking.networkmanager.enable = true;
 
   # Legacy iptables (for KubeVirt) 
-  networking.nftables.enable = false;
-  networking.firewall.package = pkgs.iptables-legacy;
+  networking.nftables.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -100,6 +99,14 @@
     waybar
     home-manager
   ];
+
+  # Home manager iykyk
+  home-manager = {
+	extraSpecialArgs = { inherit inputs; };
+	users = {
+	  "gaballa" = import ./home.nix;
+	};
+  };
 
   # Enable waybar
   programs.waybar.enable = true;
