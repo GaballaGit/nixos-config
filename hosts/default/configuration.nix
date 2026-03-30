@@ -100,6 +100,7 @@
     kitty
     waybar
     home-manager
+    btop
   ];
 
   # Home manager iykyk
