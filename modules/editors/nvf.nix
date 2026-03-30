@@ -10,6 +10,7 @@
 
     settings.vim = {
       lsp.enable = true;
+      lsp.lspconfig.enable = true;
       vimAlias = true;
       viAlias = true;
       withNodeJs = true;
@@ -35,6 +36,11 @@
         };
       };
 
+      autocomplete.blink-cmp = {
+        #setupOpts.signature.enable = true;
+        enable = true;
+      };
+
       diagnostics = {
         enable = true;
         config = {
@@ -57,7 +63,6 @@
         lightbulb.enable = false;
         lspsaga.enable = false;
         trouble.enable = true;
-        lspSignature.enable = true;
         otter-nvim.enable = false;
         nvim-docs-view.enable = false;
       };
