@@ -101,6 +101,7 @@
     waybar
     home-manager
     btop
+    tree-sitter
   ];
 
   # Home manager iykyk
