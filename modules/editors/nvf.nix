@@ -104,6 +104,7 @@
           logo_tooltip = "crying";
           main_image = "language";
           enable_line_number = true;
+          log_level = "debug";
         };
       };
     };

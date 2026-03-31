@@ -71,6 +71,7 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    XDG_RUNTIME_DIR = "/run/user/1000/";
   };
 
   # Let Home Manager install and manage itself.
