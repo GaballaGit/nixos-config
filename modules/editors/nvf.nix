@@ -75,6 +75,7 @@
         python.enable = true;
         go.enable = true;
         markdown.enable = true;
+        sql.enable = true;
         ts = {
           enable = true;
           lsp.enable = true;
