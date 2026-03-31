@@ -84,7 +84,9 @@
         };
         html = {
           enable = true;
-          format.enable = true; # note sure if prettierd exists for html?
+          format.type = [
+            "prettierd"
+          ];
         };
         css = {
           enable = true;
@@ -93,6 +95,16 @@
           ];
         };
         lua.enable = true;
+      };
+
+      presence.neocord = {
+        enable = true;
+
+        setupOpts = {
+          logo_tooltip = "crying";
+          main_image = "language";
+          enable_line_number = true;
+        };
       };
     };
   };
