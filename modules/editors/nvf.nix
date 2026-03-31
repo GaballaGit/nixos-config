@@ -75,7 +75,14 @@
         python.enable = true;
         go.enable = true;
         markdown.enable = true;
-        sql.enable = true;
+        yaml.enable = true;
+        sql = {
+          enable = true;
+          lsp.enable = true;
+          format.type = [
+            "sqlfluff"
+          ];
+        };
         ts = {
           enable = true;
           lsp.enable = true;
