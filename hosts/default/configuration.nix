@@ -32,6 +32,11 @@
   # Legacy iptables (for KubeVirt)
   networking.nftables.enable = true;
 
+  # Enable GPU driver
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia.open = true;
+
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
