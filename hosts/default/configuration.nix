@@ -102,6 +102,8 @@
     home-manager
     btop
     tree-sitter
+    davinci-resolve
+    obs-studio
   ];
 
   # Home manager iykyk
