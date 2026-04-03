@@ -110,6 +110,7 @@
     davinci-resolve
     obs-studio
     vlc
+    ffmpeg
   ];
 
   # Home manager iykyk
