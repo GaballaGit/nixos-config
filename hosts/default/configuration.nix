@@ -109,6 +109,7 @@
     tree-sitter
     davinci-resolve
     obs-studio
+    vlc
   ];
 
   # Home manager iykyk
