@@ -112,6 +112,7 @@
     obs-studio
     vlc
     ffmpeg
+    spicetify-cli
   ];
 
   # Home manager iykyk
