@@ -198,5 +198,9 @@
     enable = true;
     allowBitmaps = true;
     useEmbeddedBitmaps = true;
+
+    defaultFonts = {
+      monospace = ["Cozette"];
+    };
   };
 }
