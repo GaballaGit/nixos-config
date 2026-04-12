@@ -188,8 +188,15 @@
 
   # Fonts
   fonts.packages = [
+    pkgs.cozette
     pkgs.nerd-fonts.fira-code
     pkgs.nerd-fonts.droid-sans-mono
     pkgs.nerd-fonts.jetbrains-mono
   ];
+
+  fonts.fontconfig = {
+    enable = true;
+    allowBitmaps = true;
+    useEmbeddedBitmaps = true;
+  };
 }
