@@ -33,9 +33,10 @@
   networking.nftables.enable = true;
 
   # Enable GPU driver
-  hardware.graphics.enable = true;
-  services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia.open = true;
+  # Disabled for now due to frequent crashing and common graphic glichs.
+  #hardware.graphics.enable = true;
+  #services.xserver.videoDrivers = ["nvidia"];
+  #hardware.nvidia.open = true;
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
