@@ -103,7 +103,6 @@
     discord
     libreoffice
     krita
-    kitty
     waybar
     home-manager
     btop
@@ -113,6 +112,7 @@
     vlc
     ffmpeg
     spicetify-cli
+    alacritty
   ];
 
   # Home manager iykyk
