@@ -9,7 +9,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Neovim
     nvf.url = "github:notashelf/nvf";
+
+    # ifykyk
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    aagl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -21,6 +26,7 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/default/configuration.nix
+        ./modules/programs/aagl.nix # as far as I know, home manager is not supported for this yet, hence its here
         inputs.home-manager.nixosModules.default
 
         {
