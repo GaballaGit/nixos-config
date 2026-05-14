@@ -107,12 +107,12 @@
     home-manager
     btop
     tree-sitter
-    davinci-resolve
     obs-studio
     vlc
     ffmpeg
     spicetify-cli
     alacritty
+    kdePackages.kdenlive
   ];
 
   # Home manager iykyk
