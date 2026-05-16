@@ -16,8 +16,10 @@
   # Allowing unfree
   nixpkgs.config.allowUnfree = true;
 
-  # Use the systemd-boot EFI boot loader.
+  # Flatpack
+  services.flatpak.enable = true;
 
+  # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
