@@ -115,6 +115,7 @@
     spicetify-cli
     alacritty
     kdePackages.kdenlive
+    slack
   ];
 
   # Home manager iykyk
