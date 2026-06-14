@@ -84,7 +84,7 @@
             "sqlfluff"
           ];
         };
-        ts = {
+        typescript = {
           enable = true;
           lsp.enable = true;
           format.type = [
