@@ -24,8 +24,9 @@
       };
 
       theme = {
+        enable = true;
         transparent = true;
-        name = "tokyonight";
+        #  name = "tokyonight";
       };
 
       statusline = {
