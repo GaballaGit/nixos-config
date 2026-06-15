@@ -112,9 +112,9 @@
     vlc
     ffmpeg
     spicetify-cli
-    alacritty
     kdePackages.kdenlive
     slack
+    kitty
   ];
 
   # Home manager iykyk
