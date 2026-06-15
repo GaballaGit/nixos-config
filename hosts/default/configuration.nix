@@ -203,7 +203,9 @@
     useEmbeddedBitmaps = true;
 
     defaultFonts = {
-      monospace = ["Cozette"];
+      serif = ["jetbrains-mono"];
+      sansSerif = ["jetbrains-mono"];
+      monospace = ["jetbrains-mono"];
     };
   };
 
