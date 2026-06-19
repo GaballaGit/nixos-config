@@ -115,6 +115,7 @@
     kdePackages.kdenlive
     slack
     kitty
+    kiro
   ];
 
   # Home manager iykyk
