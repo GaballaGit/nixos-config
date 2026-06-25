@@ -1,6 +1,6 @@
 {
   inputs,
-  config,
+  pkgs,
   ...
 }: {
   imports = [inputs.nvf.homeManagerModules.default];
@@ -21,6 +21,22 @@
         tabstop = 4;
         shiftwidth = 2;
         wrap = false;
+      };
+      startPlugins = with pkgs.vimPlugins; [
+        plenary-nvim
+        nui-nvim
+        leetcode-nvim
+      ];
+
+      lazy.plugins."leetcode.nvim" = {
+        package = pkgs.vimPlugins.leetcode-nvim;
+
+        setupModule = "leetcode";
+        setupOpts = {
+          lang = "golang";
+        };
+
+        cmd = ["Leet"];
       };
 
       theme = {
