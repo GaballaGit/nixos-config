@@ -19,6 +19,9 @@
   # Flatpack
   services.flatpak.enable = true;
 
+  # enable nix-ld to run unpatched binaries
+  programs.nix-ld.enable = true;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -126,6 +129,11 @@
     users = {
       "gaballa" = import ./home.nix;
     };
+  };
+
+  # Steam yah
+  programs.steam = {
+    enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
