@@ -119,6 +119,7 @@
     slack
     kitty
     kiro
+    codex
   ];
 
   # Home manager iykyk
