@@ -91,6 +91,7 @@
         clang.enable = true;
         python.enable = true;
         go.enable = true;
+        rust.enable = true;
         csharp.enable = true;
         markdown.enable = true;
         yaml.enable = true;
