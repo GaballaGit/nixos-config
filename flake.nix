@@ -9,12 +9,27 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Soon
+    #nix-darwin = {
+    #  url = "github:LnL7/nix-darwin";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
+
     # Neovim
     nvf.url = "github:notashelf/nvf";
+
+    # spicetify
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     # ifykyk
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl.inputs.nixpkgs.follows = "nixpkgs";
+
+    # consider using stylix for theming later
+    #stylix = {
+    #  url = "github:nix-community/stylix";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
   };
 
   outputs = {
@@ -22,13 +37,11 @@
     home-manager,
     ...
   } @ inputs: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.mizuki = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ./hosts/default/configuration.nix
-        ./modules/programs/aagl.nix # as far as I know, home manager is not supported for this yet, hence its here
+        ./machines/mizuki/configuration.nix
         inputs.home-manager.nixosModules.default
-
         {
           home-manager.users.gaballa = {
             imports = [
@@ -38,5 +51,19 @@
         }
       ];
     };
+
+    # My server
+    #nixosConfigurations.therta = nixpkgs.lib.nixosSystem {
+    # Todo
+    #modules = [
+    #];
+    #};
+
+    # macbook with nix darwin
+    #nixosConfigurations.homura = nixpkgs.lib.nixosSystem {
+    # Todo
+    #modules = [
+    #];
+    #};
   };
 }
