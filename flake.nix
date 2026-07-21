@@ -9,12 +9,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Soon
+    #nix-darwin = {
+    #  url = "github:LnL7/nix-darwin";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
+
     # Neovim
     nvf.url = "github:notashelf/nvf";
 
     # ifykyk
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl.inputs.nixpkgs.follows = "nixpkgs";
+
+    # consider using stylix for theming later
+    #stylix = {
+    #  url = "github:nix-community/stylix";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
   };
 
   outputs = {
@@ -39,10 +51,17 @@
     };
 
     # My server
-    nixosConfigurations.therta = nixpkgs.lib.nixosSystem {
-      # Todo
-      modules = [
-      ];
-    };
+    #nixosConfigurations.therta = nixpkgs.lib.nixosSystem {
+    # Todo
+    #modules = [
+    #];
+    #};
+
+    # macbook with nix darwin
+    #nixosConfigurations.silver = nixpkgs.lib.nixosSystem {
+    # Todo
+    #modules = [
+    #];
+    #};
   };
 }

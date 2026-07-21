@@ -12,9 +12,11 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../modules/nixos
+    ../../modules/shared
   ];
   firefox.enable = true;
   aagl.enable = true;
+  steam.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -89,7 +91,6 @@
     fastfetch
     neovim
     tmux
-    spotify
     discord
     libreoffice
     krita
@@ -99,7 +100,6 @@
     obs-studio
     vlc
     ffmpeg
-    spicetify-cli
     kdePackages.kdenlive
     slack
     kitty
