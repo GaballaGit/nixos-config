@@ -18,6 +18,9 @@
     # Neovim
     nvf.url = "github:notashelf/nvf";
 
+    # spicetify
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
     # ifykyk
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl.inputs.nixpkgs.follows = "nixpkgs";
@@ -37,9 +40,8 @@
     nixosConfigurations.mizuki = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ./hosts/pyrite/configuration.nix
+        ./machines/mizuki/configuration.nix
         inputs.home-manager.nixosModules.default
-
         {
           home-manager.users.gaballa = {
             imports = [
@@ -58,7 +60,7 @@
     #};
 
     # macbook with nix darwin
-    #nixosConfigurations.silver = nixpkgs.lib.nixosSystem {
+    #nixosConfigurations.homura = nixpkgs.lib.nixosSystem {
     # Todo
     #modules = [
     #];

@@ -17,6 +17,7 @@
   firefox.enable = true;
   aagl.enable = true;
   steam.enable = true;
+  spicetify.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
