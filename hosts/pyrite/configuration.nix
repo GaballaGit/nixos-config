@@ -11,7 +11,10 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../modules/nixos
   ];
+  firefox.enable = true;
+  aagl.enable = true;
 
   # Allowing unfree
   nixpkgs.config.allowUnfree = true;
@@ -67,6 +70,9 @@
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
 
+  # Enable Niri
+  programs.niri.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -92,15 +98,12 @@
     initialPassword = "123";
   };
 
-  # programs.firefox.enable = true;
-
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
-    firefox
     fastfetch
     neovim
     tmux
@@ -119,7 +122,6 @@
     slack
     kitty
     kiro
-    codex
   ];
 
   # Home manager iykyk

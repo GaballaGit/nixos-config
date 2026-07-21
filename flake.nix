@@ -22,11 +22,10 @@
     home-manager,
     ...
   } @ inputs: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.pyrite = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ./hosts/default/configuration.nix
-        ./modules/programs/aagl.nix # as far as I know, home manager is not supported for this yet, hence its here
+        ./hosts/pyrite/configuration.nix
         inputs.home-manager.nixosModules.default
 
         {
@@ -36,6 +35,13 @@
             ];
           };
         }
+      ];
+    };
+
+    # My server
+    nixosConfigurations.silver = nixpkgs.lib.nixosSystem {
+      # Todo
+      modules = [
       ];
     };
   };
