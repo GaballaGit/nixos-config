@@ -16,10 +16,8 @@
   firefox.enable = true;
   aagl.enable = true;
 
-  # Allowing unfree
   nixpkgs.config.allowUnfree = true;
 
-  # Flatpack
   services.flatpak.enable = true;
 
   # enable nix-ld to run unpatched binaries
@@ -31,7 +29,6 @@
 
   # networking.hostName = "nixos"; # Define your hostname.
 
-  # Enable nix flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Configure network connections interactively with nmcli or nmtui.
@@ -40,18 +37,7 @@
   # Legacy iptables (for KubeVirt)
   networking.nftables.enable = true;
 
-  # Enable GPU driver
-  # Disabled for now due to frequent crashing and common graphic glichs.
-  #hardware.graphics.enable = true;
-  #services.xserver.videoDrivers = ["nvidia"];
-  #hardware.nvidia.open = true;
-
-  # Set your time zone.
   time.timeZone = "America/Los_Angeles";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -70,15 +56,11 @@
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-  # Enable Niri
   programs.niri.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -134,11 +116,6 @@
     };
   };
 
-  # Steam yah
-  programs.steam = {
-    enable = true;
-  };
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
@@ -151,12 +128,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
@@ -188,11 +159,9 @@
   # Activate firejail for isolation when grading
   programs.firejail.enable = true;
 
-  # Activate postgresql
   services.postgresql = {
     enable = true;
     ensureDatabases = ["mydatabase"];
-    # blud thought ipv6 was allowed :sob:
     authentication = pkgs.lib.mkOverride 10 ''
       #type database DBuser auth-method
       local all      all    trust

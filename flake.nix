@@ -22,7 +22,7 @@
     home-manager,
     ...
   } @ inputs: {
-    nixosConfigurations.pyrite = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.mizuki = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/pyrite/configuration.nix
@@ -39,7 +39,7 @@
     };
 
     # My server
-    nixosConfigurations.silver = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.therta = nixpkgs.lib.nixosSystem {
       # Todo
       modules = [
       ];
