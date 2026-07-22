@@ -3,5 +3,6 @@
     ./programs/firefox.nix
     ./programs/aagl.nix
     ./programs/spicetify.nix
+    ./docker.nix
   ];
 }
