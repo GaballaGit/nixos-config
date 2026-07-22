@@ -53,11 +53,13 @@
     };
 
     # My server
-    #nixosConfigurations.therta = nixpkgs.lib.nixosSystem {
-    # Todo
-    #modules = [
-    #];
-    #};
+    nixosConfigurations.therta = nixpkgs.lib.nixosSystem {
+      # Todo
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./machines/therta/configuration.nix
+      ];
+    };
 
     # macbook with nix darwin
     #nixosConfigurations.homura = nixpkgs.lib.nixosSystem {
