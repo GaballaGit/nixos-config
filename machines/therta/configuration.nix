@@ -19,7 +19,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # networking.hostName = "nixos"; 
+  networking.hostName = "therta"; 
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -40,6 +40,7 @@
     vim 
     wget
     git
+    tailscale
   ];
 
   services.openssh = {
@@ -48,6 +49,10 @@
       PasswordAuthentication = true;
     };
   };
+
+
+  services.tailscale.enable = true;
+  networking.firewall.allowedUDPPorts = [ 41641 ]; # tailscale needs this port for wireguard, which is a vpn from what I understand.
 
   system.stateVersion = "25.11"; 
 }
