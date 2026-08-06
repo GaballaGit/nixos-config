@@ -46,7 +46,7 @@
       # Vaporwave
       # wal16
       theme = spicePkgs.themes.comfy; #prob change this later idk if I like
-      colorScheme = "rose-pine-dawn";
+      colorScheme = "catppuccin-mocha";
 
       enabledExtensions = with spicePkgs.extensions; [
         adblock # for when I eventually lose my student spotify lol

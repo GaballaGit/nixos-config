@@ -9,8 +9,8 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    # Include the results of the hware scan.
+    ./hware-configuration.nix
     ../../modules/nixos
     ../../modules/shared
   ];
@@ -105,6 +105,7 @@
     slack
     kitty
     kiro
+    element-web
   ];
 
   # Home manager iykyk
