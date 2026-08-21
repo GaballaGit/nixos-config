@@ -106,19 +106,19 @@
           enable = true;
           lsp.enable = true;
           format.type = [
-            "prettierd"
+            "prettier"
           ];
         };
         html = {
           enable = true;
           format.type = [
-            "prettierd"
+            "prettier"
           ];
         };
         css = {
           enable = true;
           format.type = [
-            "prettierd"
+            "prettier"
           ];
         };
         lua.enable = true;

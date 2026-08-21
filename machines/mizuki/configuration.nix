@@ -15,7 +15,7 @@
     ../../modules/shared
   ];
   firefox.enable = true;
-  aagl.enable = true;
+  aagl.enable = false;
   steam.enable = true;
   spicetify.enable = true;
 
@@ -59,7 +59,9 @@
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-  programs.niri.enable = true;
+  # Enable niri except its not doing shit
+  # jk
+  #programs.niri.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -106,6 +108,8 @@
     kitty
     kiro
     element-desktop
+    minikube
+    kubectl
   ];
 
   # Home manager iykyk
@@ -137,6 +141,10 @@
 
   # Activate docker
   virtualisation.docker.enable = true;
+
+  # Virtualbox for myyy minikube
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = ["user-with-access-to-virtualbox"];
 
   services.postgresql = {
     enable = true;
