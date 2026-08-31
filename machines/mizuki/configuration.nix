@@ -67,6 +67,7 @@
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = {};
+  programs.xwayland.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -120,6 +121,7 @@
     swayidle
     noctalia-qs
     vesktop # Discord kinda explodes on wayland so vencord it is
+    xwayland-satellite
   ];
 
   # Home manager iykyk
