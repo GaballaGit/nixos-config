@@ -22,8 +22,15 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     # ifykyk
-    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
-    aagl.inputs.nixpkgs.follows = "nixpkgs";
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # consider using stylix for theming later
     #stylix = {
@@ -46,6 +53,7 @@
           home-manager.users.gaballa = {
             imports = [
               ./modules/editors/nvf.nix
+              ./modules/home/noctalia.nix
             ];
           };
         }

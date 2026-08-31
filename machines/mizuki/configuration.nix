@@ -119,7 +119,7 @@
     swaylock
     mako
     swayidle
-    noctalia-shell
+    noctalia-qs
   ];
 
   # Home manager iykyk
