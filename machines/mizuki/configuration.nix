@@ -53,15 +53,20 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # KDE plasma, swapped out for niri rn
+  # services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-  # Enable niri except its not doing shit
-  # jk
-  #programs.niri.enable = true;
+  # Enable niri (second try the charm!)
+  programs.niri.enable = true;
+
+  # More shit for niri
+  security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.swaylock = {};
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -110,6 +115,11 @@
     element-desktop
     minikube
     kubectl
+    fuzzel
+    swaylock
+    mako
+    swayidle
+    noctalia-shell
   ];
 
   # Home manager iykyk
