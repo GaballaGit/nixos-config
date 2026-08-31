@@ -99,7 +99,6 @@
     fastfetch
     neovim
     tmux
-    discord
     libreoffice
     krita
     home-manager
@@ -120,6 +119,7 @@
     mako
     swayidle
     noctalia-qs
+    vesktop # Discord kinda explodes on wayland so vencord it is
   ];
 
   # Home manager iykyk
