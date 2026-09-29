@@ -9,11 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Soon
-    #nix-darwin = {
-    #  url = "github:LnL7/nix-darwin";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Neovim
     nvf.url = "github:notashelf/nvf";
@@ -41,6 +40,7 @@
 
   outputs = {
     nixpkgs,
+    nix-darwin,
     home-manager,
     ...
   } @ inputs: {
@@ -70,10 +70,11 @@
     };
 
     # macbook with nix darwin
-    #nixosConfigurations.homura = nixpkgs.lib.nixosSystem {
+    darwinConfigurations.homura = nix-darwin.lib.darwinSystem {
     # Todo
-    #modules = [
-    #];
-    #};
+	    modules = [
+		./machines/homura/configuration.nix
+	    ];
+    };
   };
 }
