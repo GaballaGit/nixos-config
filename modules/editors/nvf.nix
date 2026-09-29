@@ -1,6 +1,8 @@
 {
   inputs,
   pkgs,
+  config,
+  lib,
   ...
 }: {
   imports = [inputs.nvf.homeManagerModules.default];
@@ -18,121 +20,121 @@
       enableLuaLoader = true;
       preventJunkFiles = true;
       options = {
-        tabstop = 4;
-        shiftwidth = 2;
-        wrap = false;
+	tabstop = 4;
+	shiftwidth = 2;
+	wrap = false;
       };
       startPlugins = with pkgs.vimPlugins; [
-        plenary-nvim
-        nui-nvim
-        leetcode-nvim
+	plenary-nvim
+	nui-nvim
+	leetcode-nvim
       ];
 
       lazy.plugins."leetcode.nvim" = {
-        package = pkgs.vimPlugins.leetcode-nvim;
+	package = pkgs.vimPlugins.leetcode-nvim;
 
-        setupModule = "leetcode";
-        setupOpts = {
-          lang = "golang";
-        };
+	setupModule = "leetcode";
+	setupOpts = {
+	  lang = "golang";
+	};
 
-        cmd = ["Leet"];
+	cmd = ["Leet"];
       };
 
       theme = {
-        enable = true;
-        transparent = true;
-        #  name = "tokyonight";
+	enable = true;
+	transparent = true;
+	#  name = "tokyonight";
       };
 
       statusline = {
-        lualine = {
-          enable = true;
-          icons.enable = true;
-          theme = "Tomorrow";
-        };
+	lualine = {
+	  enable = true;
+	  icons.enable = true;
+	  theme = "Tomorrow";
+	};
       };
 
       autocomplete.blink-cmp = {
-        #setupOpts.signature.enable = true;
-        enable = true;
+	#setupOpts.signature.enable = true;
+	enable = true;
       };
 
       diagnostics = {
-        enable = true;
-        config = {
-          virtual_lines.enable = true;
-          underline = true;
-        };
+	enable = true;
+	config = {
+	  virtual_lines.enable = true;
+	  underline = true;
+	};
       };
 
       telescope.enable = true;
 
       spellcheck = {
-        enable = true;
-        languages = ["en"];
-        programmingWordlist.enable = true;
+	enable = true;
+	languages = ["en"];
+	programmingWordlist.enable = true;
       };
 
       lsp = {
-        formatOnSave = true;
-        lspkind.enable = false;
-        lightbulb.enable = false;
-        lspsaga.enable = false;
-        trouble.enable = true;
-        otter-nvim.enable = false;
-        nvim-docs-view.enable = false;
+	formatOnSave = true;
+	lspkind.enable = false;
+	lightbulb.enable = false;
+	lspsaga.enable = false;
+	trouble.enable = true;
+	otter-nvim.enable = false;
+	nvim-docs-view.enable = false;
       };
 
       languages = {
-        enableFormat = true;
-        enableTreesitter = true;
-        nix.enable = true;
-        clang.enable = true;
-        python.enable = true;
-        go.enable = true;
-        rust.enable = true;
-        csharp.enable = true;
-        markdown.enable = true;
-        yaml.enable = true;
-        sql = {
-          enable = true;
-          lsp.enable = true;
-          format.type = [
-            "sqlfluff"
-          ];
-        };
-        typescript = {
-          enable = true;
-          lsp.enable = true;
-          format.type = [
-            "prettier"
-          ];
-        };
-        html = {
-          enable = true;
-          format.type = [
-            "prettier"
-          ];
-        };
-        css = {
-          enable = true;
-          format.type = [
-            "prettier"
-          ];
-        };
-        lua.enable = true;
+	enableFormat = true;
+	enableTreesitter = true;
+	nix.enable = true;
+	clang.enable = true;
+	python.enable = true;
+	go.enable = true;
+	rust.enable = true;
+	csharp.enable = true;
+	markdown.enable = true;
+	yaml.enable = true;
+	sql = {
+	  enable = true;
+	  lsp.enable = true;
+	  format.type = [
+	    "sqlfluff"
+	  ];
+	};
+	typescript = {
+	  enable = true;
+	  lsp.enable = true;
+	  format.type = [
+	    "prettier"
+	  ];
+	};
+	html = {
+	  enable = true;
+	  format.type = [
+	    "prettier"
+	  ];
+	};
+	css = {
+	  enable = true;
+	  format.type = [
+	    "prettier"
+	  ];
+	};
+	lua.enable = true;
       };
 
       presence.neocord = {
-        enable = true;
+	enable = true;
 
-        setupOpts = {
-          logo_tooltip = "crying";
-          main_image = "language";
-          enable_line_number = true;
-          log_level = "debug";
-        };
+	setupOpts = {
+	  logo_tooltip = "crying";
+	  main_image = "language";
+	  enable_line_number = true;
+	  log_level = "debug";
+	};
       };
     };
   };

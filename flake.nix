@@ -72,8 +72,17 @@
     # macbook with nix darwin
     darwinConfigurations.homura = nix-darwin.lib.darwinSystem {
     # Todo
+	    specialArgs = { inherit inputs; };
 	    modules = [
 		./machines/homura/configuration.nix
+		inputs.home-manager.darwinModules.default
+		{
+		  home-manager.users.gaballa = {
+		    imports = [
+		      ./modules/editors/nvf.nix
+		    ];
+		  };
+		}
 	    ];
     };
   };
