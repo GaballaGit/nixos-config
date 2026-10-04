@@ -11,6 +11,10 @@
     enable = true;
 
     settings.vim = {
+      globals = {
+        mapleader = " ";
+      };
+
       lsp.enable = true;
       lsp.lspconfig.enable = true;
       vimAlias = true;
@@ -69,6 +73,91 @@
       };
 
       telescope.enable = true;
+
+      luaConfigRC.gitDiffQuickfix = ''
+        local function open_git_diff_quickfix()
+          local root = vim.fn.systemlist({"git", "rev-parse", "--show-toplevel"})[1]
+          if vim.v.shell_error ~= 0 or root == nil or root == "" then
+            vim.notify("Not inside a git repository", vim.log.levels.WARN)
+            return
+          end
+
+          local files = vim.fn.systemlist({"git", "-C", root, "diff", "--name-only", "--diff-filter=ACMR", "HEAD", "--"})
+          if vim.v.shell_error ~= 0 then
+            vim.notify("Failed to read git diff", vim.log.levels.ERROR)
+            return
+          end
+
+          local seen = {}
+          local qf = {}
+          for _, file in ipairs(files) do
+            if file ~= "" and not seen[file] then
+              seen[file] = true
+              table.insert(qf, {
+                filename = root .. "/" .. file,
+                lnum = 1,
+                col = 1,
+                text = "Changed in git diff",
+              })
+            end
+          end
+
+
+          if #qf == 0 then
+            vim.notify("No files changed in git diff", vim.log.levels.INFO)
+          else
+            vim.fn.setqflist({}, "r", {
+              title = "Git diff files",
+              items = qf,
+            })
+            vim.cmd("copen")
+          end
+        end
+
+        local function delete_quickfix_item()
+          local line = vim.fn.line(".")
+          local qf = vim.fn.getqflist({items = 1, idx = 0})
+          local idx = qf.idx
+
+          if idx == 0 or qf.items[idx] == nil then
+            return
+          end
+
+          table.remove(qf.items, idx)
+          if #qf.items == 0 then
+            vim.fn.setqflist({}, "r", {items = {}})
+            vim.cmd("cclose")
+            return
+          end
+
+          local new_idx = math.min(idx, #qf.items)
+          vim.fn.setqflist({}, "r", {items = qf.items, idx = new_idx})
+          vim.api.nvim_win_set_cursor(0, {math.min(line, #qf.items), 0})
+        end
+
+        vim.api.nvim_create_autocmd("FileType", {
+          pattern = "qf",
+          callback = function(args)
+            vim.keymap.set("n", "dd", delete_quickfix_item, {
+              buffer = args.buf,
+              silent = true,
+              desc = "Delete quickfix item",
+            })
+          end,
+        })
+
+        vim.api.nvim_create_user_command("GitDiffQuickfix", open_git_diff_quickfix, {})
+      '';
+
+      keymaps = [
+        {
+          key = "<leader>gq";
+          mode = "n";
+          silent = true;
+          desc = "Open git diff files in quickfix";
+          action = "<cmd>GitDiffQuickfix<CR>";
+        }
+      ];
 
       spellcheck = {
 	enable = true;

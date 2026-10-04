@@ -122,6 +122,11 @@
     noctalia-qs
     vesktop # Discord kinda explodes on wayland so vencord it is
     xwayland-satellite
+    yazi
+    gh
+    pi-coding-agent
+    labwc
+    webex
   ];
 
   # Home manager iykyk
