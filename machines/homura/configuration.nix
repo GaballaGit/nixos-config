@@ -28,6 +28,7 @@
     yazi
     tmux
     pi-coding-agent
+    gh
   ];
 
   services.tailscale.enable = true;
