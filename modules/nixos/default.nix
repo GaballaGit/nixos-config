@@ -4,5 +4,6 @@
     ./programs/aagl.nix
     ./programs/spicetify.nix
     ./docker.nix
+    ./nix.nix
   ];
 }

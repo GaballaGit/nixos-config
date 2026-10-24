@@ -127,6 +127,10 @@
     pi-coding-agent
     labwc
     webex
+    kdePackages.dolphin
+    kdePackages.kolourpaint
+    ripgrep
+    fzf
   ];
 
   # Home manager iykyk
