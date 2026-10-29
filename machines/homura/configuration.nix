@@ -29,6 +29,7 @@
     tmux
     pi-coding-agent
     gh
+    fzf
   ];
 
   services.tailscale.enable = true;
